@@ -1,0 +1,5 @@
+Password for the file is seismograph
+
+as it is a seismograph photo
+
+use steghide to extract
