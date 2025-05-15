@@ -1,0 +1,25 @@
+?  You have an .exe file (probably from a C/C++ or similar program).
+?  There are two functions inside:
+* One prints hello world (this is the one currently running).
+* One contains the flag (but it’s not called).
+Use a disassembler or decompiler like:
+* Ghidra 
+* IDA Free 
+Steps to solve
+ a) Identify both functions
+* Load the .exe into Ghidra or IDA.
+* Find the main function and check which functions it calls.
+* Locate the flag function (you might recognize it by name or by spotting strings like flag{...} inside).
+ b) Check why the flag function isn’t called
+* In main, you likely see a direct call to hello_world().
+* There’s no call to the flag function — maybe it’s just unused.
+ c) Patch the binary (optional)
+* You can patch the binary:
+o Replace the call to hello_world() with the call to flag_function().
+o Save the patched binary and run it to print the flag.
+ d) Or just extract the flag
+* If the flag string is hardcoded (inside the binary), you can:
+o Search for the string using strings or inside Ghidra’s string listing.
+o Or decompile the flag function and see if it returns or prints the flag.
+
+
