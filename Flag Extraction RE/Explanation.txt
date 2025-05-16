@@ -1,0 +1,16 @@
+? Step 1: Initial Binary Analysis
+* Used Detect It Easy (DIE) ? showed it’s a .NET assembly, not a native binary.
+* Real logic likely inside a .NET DLL loaded at runtime.
+* Discovered it loads a temp DLL at runtime:
+C:\Users\prath\AppData\Local\Temp\.net\RE\nXNtl03nolEo+XczznCNqG5G7ljr_ZI=\RE.dll
+
+? Step 2: Reverse Engineering the DLL
+* Opened RE.dll in dnSpy.
+* Found key logic:
+o A function takes the user’s key, XORs it with an encrypted array, and outputs the decrypted flag.
+o It’s a basic XOR cipher.
+
+? Step 3: Writing the Solution
+* Reimplemented the XOR decryption logic in Python.
+* Ran the script ? got the correct flag.
+
